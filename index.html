@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDoList</title>
+    <link rel="stylesheet" href="todolist.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="todo">
+          <div class="todo-header">
+            <div class="todo-input-box">
+              <input
+                class="todo__input"
+                maxlength="30"
+                type="text"
+                value=""
+                placeholder="name task..."
+              />
+              <div class="todo__add-btn">+</div>
+            </div>
+            <select class="todo__select" name="" id="">
+              <option
+                class="todo__select-item todo__select-active"
+                value="active"
+              >
+                Active
+              </option>
+              <option
+                class="todo__select-item todo__select-completed"
+                value="completed"
+              >
+                Completed
+              </option>
+              <option
+                class="todo__select-item todo__select-deleted"
+                value="deleted"
+              >
+                Deleted
+              </option>
+            </select>
+            <button class="todo__all-clear-task"></button>
+          </div>
+          <ul class="todo__task-list" id="taskList"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="todolist.js"></script>
+  </body>
+</html>

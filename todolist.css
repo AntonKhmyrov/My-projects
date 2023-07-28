@@ -1,0 +1,300 @@
+:root {
+	--green: rgba(104, 153, 31, 1);
+	--white: rgb(238, 238, 238);
+	--dark-red: rgba(129, 7, 7, 1);
+	--black-transparent: rgba(0, 0, 0, 0.8);
+	--black: rgba(0, 0, 0, 1);
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	outline: none;
+}
+
+body {
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 20px;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+}
+
+.container {
+	max-width: 540px;
+	width: 100%;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.todo {
+	width: 100%;
+	max-height: 600px;
+	border-radius: 10px;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+
+.todo-header {
+	min-height: 60px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.todo-input-box {
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+
+.todo__input {
+	height: 30px;
+
+	border-radius: 3px;
+	padding: 0 30px 0 5px;
+}
+
+.todo__input:disabled {
+	background-color: rgba(0, 139, 139, 0.7);
+}
+
+.todo__add-btn {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 22px;
+	height: 22px;
+	right: 5px;
+	font-weight: 900;
+	font-size: 26px;
+	line-height: 26px;
+	color: #fff;
+	background-color: var(--green);
+}
+
+.todo__select {
+	width: 150px;
+	height: 30px;
+	color: #fff;
+	background-color: var(--green);
+}
+
+.todo__all-clear-task {
+	padding: 10px;
+}
+
+.todo__task-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.todo__task-item {
+	display: flex;
+	flex-direction: column;
+	max-width: 245px;
+	width: 100%;
+	min-height: 200px;
+	background-color: rgb(217, 230, 225);
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.todo__task-name {
+	font-size: 24px;
+	outline: none;
+	border: none;
+	border-bottom: 1px solid;
+	padding: 2px 5px;
+}
+
+.todo__task-text {
+	flex: 1;
+	font-size: 16px;
+	outline: none;
+	border: none;
+	padding: 5px;
+}
+
+.todo__update-btns {
+	flex-shrink: 0;
+	display: flex;
+	justify-content: flex-end;
+	background-color: var(--black);
+	gap: 5px;
+	padding: 5px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.update-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px;
+	height: 30px;
+	font-size: 35px;
+	background-color: var(--green);
+	border: none;
+}
+
+.todo__btn-completed>.todo__complete-task-btn {
+	display: none;
+}
+
+.todo__btn-deleted>.todo__remove-task-btn {
+	display: none;
+}
+
+.update-btn:disabled {
+	cursor: not-allowed;
+}
+
+.todo__remove-task-btn {
+	background-color: var(--dark-red);
+}
+
+.checkmark,
+.crossmark {
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	font-weight: 500;
+	font-size: 20px;
+	line-height: 25px;
+	color: var(--white);
+	text-align: center;
+	border: 1px solid var(--white);
+	border-radius: 50%;
+	transition: ease-in-out 0.15s;
+}
+
+.update-btn:hover {
+	background-color: var(--white);
+}
+
+.update-btn:hover .checkmark {
+	color: var(--green);
+	border: 1px solid var(--green);
+}
+
+.update-btn:hover .crossmark {
+	color: var(--dark-red);
+	border: 1px solid var(--dark-red);
+}
+
+.todo__add-btn,
+.todo__select,
+.todo__all-clear-task,
+.update-btn {
+	border-radius: 3px;
+	transition: ease-in-out 0.15s;
+	cursor: pointer;
+}
+
+.todo__select:hover,
+.todo__add-btn:hover {
+	background-color: var(--black)
+}
+
+.todo__add-btn:active,
+.update-btn:active {
+	transform: scale(1.06);
+}
+
+@media only screen and (max-width: 768px) {
+	.wrapper {
+		overflow-y: hidden;
+	}
+
+	.container {
+		padding: 0 10px;
+		overflow-y: scroll;
+	}
+
+	.todo__task-item {
+		max-width: 100%;
+	}
+}
+
+@media only screen and (min-width: 769px) {
+	.todo__task-item {
+		max-width: 100%;
+	}
+}
+
+@media only screen and (max-width: 560px) {
+	.todo__task-list {
+		justify-content: center;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	body {
+		font-size: 18px;
+	}
+
+	.todo__input {
+		max-width: 170px;
+	}
+
+	.todo__task-name {
+		font-size: 20px;
+	}
+
+	.todo__task-text {
+		font-size: 14px;
+	}
+
+	.todo__add-btn {
+		font-size: 22px;
+		line-height: 22px;
+	}
+
+	.update-btn {
+		font-size: 30px;
+	}
+
+	.todo__select {
+		width: 120px;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	body {
+		font-size: 16px;
+	}
+
+	.todo__input {
+		max-width: 160px;
+	}
+
+	.todo__task-name {
+		font-size: 18px;
+	}
+
+	.todo__task-text {
+		font-size: 12px;
+	}
+
+	.todo__add-btn {
+		font-size: 20px;
+		line-height: 20px;
+	}
+
+	.update-btn {
+		font-size: 26px;
+	}
+
+	.todo__select {
+		width: 100px;
+	}
+}
